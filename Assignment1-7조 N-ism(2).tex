@@ -1,0 +1,693 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Clothes Tower : Smart Closet\\
+{\footnotesize \textsuperscript{*}N-ism}
+\thanks{Identify applicable funding agency here. If none, delete this.}
+}
+
+\author{\IEEEauthorblockN{JunSung Kim}
+\IEEEauthorblockA{\textit{dept. of Information System} \\
+\textit{Hanyang University}\\
+Seoul, Republic of Korea \\
+jsistop16@naver.com}
+\and
+\IEEEauthorblockN{SeungHwan Cheon}
+\IEEEauthorblockA{\textit{dept. of Information System} \\
+\textit{Hanyang University}\\
+Seoul, Republic of Korea \\
+dg7989@hanyang.ac.kr}
+\and
+\IEEEauthorblockN{JeMin Seo}
+\IEEEauthorblockA{\textit{dept. of Information System} \\
+\textit{Hanyang University}\\
+Seoul, Republic of Korea \\
+jemin3161@naver.com}
+\and
+\IEEEauthorblockN{PyeongSoo Park}
+\IEEEauthorblockA{\textit{dept. of Information System} \\
+\textit{Hanyang University}\\
+Seoul, Republic of Korea \\
+ps3624@naver.com}
+}
+
+\maketitle
+
+\begin{abstract}
+People have a lot of clothes. Did you forget anything? Are there clothes that you can't find when you need them? Clothes Tower is a smart closet that allows users to use clothes more conveniently by receiving the  type and unique number of clothes through the application. Users will be able to wear the clothes they want in the best condition at any time through the Clothes Tower.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Clothes, Closet, management, Application, Furniture
+\end{IEEEkeywords}
+
+
+\begin{table}
+\caption{Role Assignments}
+\label{t1}
+\begin{tabular}{|p{2cm}|p{2cm}|p{3cm}|}
+\noalign{\smallskip}\noalign{\smallskip}\hline
+Roles & Name & Task descriptions and etc \\
+\hline
+User & PyeongSoo Park & It analyzes and investigates which services customers want. It analyzes the purpose of the closet in detail and investigates how customers feel satisfied with the closet. It is in charge of various fields such as design and function.  \\
+\hline
+Customer & JeMin Seo & It is in charge of the overall planning of ideas. From the customer's point of view, it contemplates and presents which parts are inconvenient and should be added. As the project progresses, problems are first discovered.  \\
+\hline
+Software Developer  & JunSung Kim & Create data that drives the closet and construct a draft on how to induce it to work. Design and implement applications. Overall, it is responsible for solving the driving method and software problems of the item.  \\
+\hline
+Development Manager  & SeungHwan Cheon & Identify and lead the overall flow of planning. Check the direction of the plan from time to time to see if it meets the original intention. In addition, it manages whether the tasks of the previous roles are being performed properly.  \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Introduction}
+
+\subsection{Motivation / Problem Statement (client’s needs)}
+
+Recently, people's interest in fashion is getting hotter. Previously, there were many people who valued only expensive brand clothing. However, these days, each person buys and wears clothes according to their own personality. Wear many kinds of clothes such as outerwear, top, bottom, shoes, and accessories. In addition, as styles diversify, people share their own methods through SNS (Instagram or YouTube). Therefore, consumers sometimes forget the clothes they have organized in their closets because they repeatedly wear, buy, and throw away various clothes. Even once the season changes, there may be cases where you don't know which clothes were there. In addition, there will not be many people who manage many clothes with only one closet. We thought about how to manage many clothes in one space. And we found the answer at the parking tower where the vehicle was stored.
+The parking tower is a mixture of elevators and parking lots. The purpose of the parking tower is to maximize space utilization with the aim of parking many vehicles in a narrow space. For example, it is commonly used in high-rise buildings with many people due to the high floor of hotels and buildings where the circulation of cars is not fast. In addition, the advantage of the parking tower is that it is easy to monitor parking conditions, easy to operate equipment, and easy to operate and maintain as messages are printed in the event of a failure.
+From now on, we will compare and analyze the 'Clothes Tower' and the parking tower to find client’s needs.
+
+\begin{enumerate}
+    \item Space Utilization
+    \begin{itemize}
+        \item Parking Tower
+        \begin{description}
+            \item As the number of vehicles to be accommodated increases, it is difficult to solve with the existing parking method (using the entire floor as a parking space). This is because it is far from design and utilization to divide one floor into parking and office spaces. Therefore, if you use it as a parking space, you have no choice but to use all floors as a parking space. Therefore, it was used vertically and long to increase the utilization of the building.
+        \end{description}
+        \item Clothes Tower
+        \begin{description}
+            \item As clothes became more diverse and more diverse, there was a problem of lack of storage space. In addition, since clothes worn in different seasons vary depending on the season, clothes worn in different seasons often forget where they were placed when they were taken out and worn. Therefore, Cloth Tower, like the parking tower, adopted a horizontal extension method for use in the house. In the case of closets, it was judged that the entire space could be used, such as built-in cabinets and dress rooms.
+        \end{description}
+    \end{itemize}
+    \item Easy to Manipulate
+    \begin{itemize}
+        \item Parking Tower
+        \begin{description}
+            \item The car is stocked and shipped through the screen. When the vehicle is put in at the time of warehousing and the number of the vehicle is entered, the machine remembers the information and places the vehicle in an empty space in the parking tower. When shipped, the vehicle is moved like an elevator to the position of the borrower with only a simple license plate input operation. Therefore, it is possible to relieve the hassle of driving separately or finding a vehicle.
+        \end{description}
+        \item Clothes Tower
+        \begin{description}
+            \item Clothes can be taken out and put in through the display shown outside the closet. When putting clothes in, simply enter and store information about clothes. And store clothes in an empty space. When taking out clothes, the closet aligns corresponding clothes according to the style and needs desired by the user through previous data. This, like the parking tower, can solve the hassle of users wandering around looking for clothes.
+        \end{description}
+    \end{itemize}
+        \item Operation and Maintenance
+    \begin{itemize}
+        \item Parking Tower
+        \begin{description}
+            \item If there is a machine failure or error through the screen, it is delivered through message output. Therefore, the machine operator only needs to check the facility without having to check everywhere, so time and cost are saved.
+        \end{description}
+        \item Clothes Tower
+        \begin{description}
+            \item In case the closet fails to properly show the clothes the user wants, the application linkage method was chosen. Since clothes can be managed and maintained through applications as well as displays in the closet, users can prepare clothes in advance regardless of location. Therefore, it guarantees time saving for the user.
+        \end{description}
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Research on any related software}
+\begin{itemize}
+    \item $Acloset$
+    \begin{description}
+        \item ‘Acloset’ is an application that manages clothes that users have. There are four categories in total. It consists of a home screen, a shopping screen, a registered clothes management screen, and a style management screen. The home screen shows an analysis of the weather, recommended styles, clothes worn this week, and styles. On the shopping screen, products that customers need are sold by classifying them by type of clothes. The screen for managing registered clothes shows the current status of clothes that users have by adding and deleting clothes themselves. The style management screen shows how the user will dress in advance by adding style.
+    \end{description}
+        \item $OTTOK$
+    \begin{description}
+        \item ‘OTTOK’ is an application that analyzes the style when the user registers the clothes and matches the coordination. When registering clothes, you can register them separately by type. In addition, you can register by item or by coordination when registering. When a user coordinates clothes registered, the AI of the application analyzes them. Based on this information, it is possible to compare or watch coordination styles with other users.
+    \end{description}
+            \item $Amazon Echo Look$
+    \begin{description}
+        \item ‘Amazon Echo Look’ is an AI and camera that advises users on what clothes look good on them through machine learning after performing a 360-degree 3D scan. It is equipped with AI, so you can ask about the weather or schedule. Photos or videos taken through a camera can be checked through a smartphone, saved, or shared on SNS. Also, sending photos to AI recommends clothes that suit users better through machine learning.
+    \end{description}
+\end{itemize}
+
+\section{REQUIREMENT}
+
+\subsection{Application Operation order}
+\begin{enumerate}
+    \item Upload a picture of the clothes the user wants to register.
+    \item Fill in the information according to the characteristics of the clothes. ex) Top/bottom, length, color, material, specific clothes, outerwea\r, pattern, etc.
+    \item Clothes that have been classified store basic data such as unique numbers and registered dates.
+    \item Registered clothes may be added and deleted through an application.
+\end{enumerate}
+\subsection{Application Function}
+\begin{itemize}
+    \item Clothes Selection
+    \begin{description}
+        \item Store the data of the clothes and configure the layout with a list view. When using a list view, the adapter, a memory space that stores data, is used to show the data contained in the adapter in the layout format called the list view.
+    \end{description}
+    \item Clothes Storage 
+    \begin{description}
+        \item Clothes that have been classified are stored in the DB including the corresponding date. Data stored for each category is stored in String and then transmitted in json format. Clothes registration date is automatically generated through ORM's created At option.
+    \end{description}
+    \item Add and Delete Functions
+    \begin{description}
+        \item Registered clothes may be added and deleted through an application. Flip the screen through the intent object from the screen configured for each category. In this case, data added to each screen is also handed over through the intent object. When the save button is pressed on the last screen, the synthesized data is transmitted to the DB. The delete function also sends a DELETE request through a button.
+    \end{description}
+    \item Reservation System
+    \begin{description}
+        \item A list-view showing a list of clothes shows a screen for setting clothes you want to reserve. After selecting the clothes, go to the screen to set the reservation date. The reservation date for the corresponding clothes is added to the data DB. Start the steam iron and styler function and deliver the progress and completion message to the user through the app.
+    \end{description}
+    \item Favorites
+    \begin{description}
+        \item The favorite function is implemented so that a star button can be added to the right side of each list in the list view to register a favorite. Favorite registered clothes are visualized separately in a separate favorite layout.
+    \end{description}
+\end{itemize}
+\subsection{Hardware (3D modeling by CATIA)}
+\begin{itemize}
+    \item Hanger-type Space
+    \begin{description}
+        \item It is largely divided into three spaces. It has the form of a long closet and a short closet on the left and right, respectively, and an accessory drawer is placed under the short closet. The space is sealed, and countermeasures are prepared to open it in case of an emergency such as failure/repair.
+    \end{description}
+    \begin{itemize}
+        \item Long / Short Closet
+        \begin{description}
+            \item Long padding, coats, and pants are stored in long closets, while short clothing such as short padding and outerwear are stored in short closets. The reservation system is available and each clothes is managed by rail. The rail movement method adopts conveyor belt operation. The arrangement of clothes is horizontal and moves along the U-shaped rail when requested by the user.
+        \end{description}
+        \item Clothing Entrance
+        \begin{description}
+            \item It is largely divided into two spaces, and the upper side discharges clothes in a hanger-type space and the lower side discharges clothes in a drawer-type space.
+        \end{description}
+        \begin{itemize}
+            \item When Put In
+            \begin{description}
+                \item It operates the dust or odor removal function of the clothes. Unlike the styler function, it is operated for cleanliness when stored in the closet and is mainly ventilated. (Only hanger-type space clothes are available)
+            \end{description}
+            \item When Discharging
+            \begin{description}
+                \item When using the reservation system, simple steam iron and styler functions can be used. It can be executed through the application and the display of the closet.
+            \end{description}
+        \item Ventilation Fan
+        \begin{description}
+            \item When the ventilation system is operated through the application, the ventilator under the short closet starts operating. It makes both short and long closets comfortable. Even if the customer forgets to use the reservation system, the minimum condition of the clothes is guaranteed.
+        \end{description}
+        \end{itemize}
+    \end{itemize}
+    \item Drawer-type Space
+    \begin{description}
+        \item It is a space for six drawers and is constructed in the form of 1*2*3 (width*length*height). As for the drawer driving method, the elevator-type operation is adopted like the parking tower. The bottom of the drawer-type space is drilled to the size of one drawer and used as a connection passage with the input and outlet spaces. Drawers can control moisture and temperature, respectively, like refrigerators, and use ventilation systems. Therefore, it is easy to classify and manage clothes in the manner desired by the user, such as the type and use of clothes. The space is sealed, and countermeasures are prepared to open it in case of an emergency such as failure/repair.
+    \end{description}
+    \item Display
+    \begin{description}
+        \item It is configured so that you can see the storage and management status of clothes in the closet at a glance. You can designate access to the desired clothes and use the reservation system function. It simply shows user information such as current time, today's weather, and schedule.
+    \end{description}
+\end{itemize}
+\section{Development Environment}
+
+\subsection{Choice of software development platform}
+\begin{itemize}
+    \item Which platform and Why?
+    \begin{enumerate}
+        \item Android
+        \begin{figure}[htbp]
+        \centerline{\includegraphics{Android.png}}
+        \caption{Android}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item Our service chose to develop an app instead of a website because users have to manage their clothes remotely without being affected by the location. The next options were IOS, android, and cross-platform applications. There are team members who have experienced Android development, and we chose the Android app to make the most of the native features of the Android operating system.
+        \end{description}
+        \item Ubuntu Linux environment of AWS EC2
+        \begin{figure}[htbp]
+        \centerline{\includegraphics{AWS.png}}
+        \caption{AWS EC2}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item The server operates in the Ubuntu Linux environment of AWS EC2. Since AWS’ Free tier service is used, the service can be distributed quickly without any cost burden. In this project, we plan to actively use AWS services. DB used AWS RDS. Since the free tier includes the use of MYSQL DB, it was possible to build a stable DB without cost. DB can be easily managed remotely in conjunction with MYSQL Workbench 8.0 CE of the local PC.
+        \end{description}
+        \item Node.js
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{nestjs_노드js 프레임워크입니당.png}}
+        \caption{Node.js}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item Node.js was selected as the server-side development language. Node.js is a JavaScript runtime of a single thread asynchronous model that can be learned relatively easily by people unfamiliar with server programming. In addition, data in JSON format can be easily processed. Due to the nature of the project, we chose node.js because we do not use data analysis or machine learning, and there are not many CPU-intensive tasks. ( Express, a representative backend framework of node.js, is light and convenient, but it is difficult to experience structured programming because developers have to devise the structure of the program from scratch. There is also a disadvantage in that it is difficult to use Swagger, an API documentation tool to be used for this project. So, in this project, we decided to use a node.js framework called Nest.js, which is similar to JAVA’s Spring Framework. Nest.js judged that the framework would help improve backend capabilities because it has the architecture of MVC patterns and contains important concepts such as DI (dependency injection) and IoC (Inversion of control). It is also convenient because the framework itself provides swagger documentation.)
+        \end{description}
+    \end{enumerate}
+    \item Which programming language and Why?
+    \begin{enumerate}
+        \item TypeScript
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{typescript.png}}
+        \caption{TypeScript}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item TypeScript is a programming language developed and maintained by Microsoft. It is superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript. Since grammatical errors are checked at the time of compilation, it has the advantage of being able to develop more stably than script languages in which errors occur in runtime environments. Another advantage of TypeScript is that it can maximize the functionality of development tools when writing code. Visual Studio Code, which is widely used in development, is optimized for type script development because the inside of the tool is written in type script. Typically, the automatic code completion function is superior to JavaScript.
+        \end{description}
+        \item Java
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{Java.png}}
+        \caption{Java}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run anywhere meaning that compiled Java code can run on all platforms that support Java without the need for recompilation. Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of the underlying computer architecture. The syntax of Java is similar to C and C++, but has fewer low-level facilities than either of them. The Java runtime provides dynamic capabilities (such as reflection and runtime code modification) that are typically not available in traditional compiled languages. As of 2019, Java was one of the most popular programming languages in use according to GitHub, particularly for client–server web applications, with a reported 9 million developers. Java was originally developed by James Gosling at Sun Microsystems (which has since been acquired by Oracle) and released in 1995 as a core component of Sun Microsystems’ Java platform. The original and reference implementation Java compilers, virtual machines, and class libraries were originally released by Sun under proprietary licenses. As of May 2007, in compliance with the specifications of the Java Community Process, Sun had relicensed most of its Java technologies under the GPL-2.0-only license. Oracle offers its own HotSpot Java Virtual Machine, however the official reference implementation is the OpenJDK JVM which is free open-source software and used by most developers and is the default JVM for almost all Linux distributions. As of October 2021, Java 17 is the latest version. Java 8, 11 and 17 are the current long-term support (LTS) versions. Oracle released the last zero-cost public update for the legacy version Java 8 LTS in January 2019 for commercial use, although it will otherwise still support Java 8 with public updates for personal use indefinitely. Other vendors have begun to offer zero-cost builds of OpenJDK 8 and 11 that are still receiving security and other upgrades.
+        \end{description}
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Which software in use?}
+    \begin{enumerate}
+        \item AWS EC2
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{AWS EC2.png}}
+        \caption{AWS EC2}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item We chose AWS EC2 as the deploy environment. EC2 is a cloud computing service provided by Amazon Web Services. Developers can quickly implement and distribute services without having to purchase actual servers. Linux Ubuntu 20.04 was used as the EC2 operating system.
+        \end{description}
+        \item AWS RDS
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{AWSRDS.png}}
+        \caption{AWS RDS}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item RDS is a distributed relational database serviced by Amazon Web Services (AWS). It is a web service that operates in the cloud designed to simplify the setting, operation, and scaling of relational databases within an application. If DB is installed directly inside EC2, it is difficult to set up and manage. If you use RDS, you can easily access the DB only with a DB client.
+        \end{description}
+        \item AWS S3
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{AWSS3.png}}
+        \caption{AWS S3}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item AWS S3 is an object storage service that provides industry-leading scalability, data availability, security and performance. AWS S3 allows users to store and protect the desired amount of data in a variety of use cases, including data rakes, websites, mobile applications, backup and restore, archives, enterprise applications, IoT devices, and big data analysis. AWS S3 provides management to optimize, structure, and organize access to data to meet specific business, organization, and compliance requirements. In our project, instead of storing the image data transmitted from the Android application on the server, we will save it in AWS S3.
+        \end{description}
+        \item Figma
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{figma.png}}
+        \caption{Figma}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item Figma is a vector graphics editor and prototyping tool which is primarily web-based, with additional offline features enabled by desktop applications for macOS and Windows. The Figma Mirror companion apps for Android and iOS allow viewing Figma prototypes in real-time on mobile devices. The feature set of Figma focuses on use in user interface and user experience design, with an emphasis on real-time collaboration.
+        \end{description}
+        \item Github
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{github.png}}
+        \caption{Github}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item GitHub is Microsoft’s web service that hosts source code based on distributed version control software git and supports collaboration support functions. It is currently the most popular source code hosting service and software development platform.
+        \end{description}
+        \item CATIA
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=7cm]{CATIA.png}}
+        \caption{CATIA}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item It is a 3D CAD & PLM software developed and sold by Dassault Systems in France. CATIA (Computer Aided Three Dimension Interactive Application) stands for interactive applied three-dimensional computer design, and is an integrated CAD/CAM/CAE SYSTEM that can handle product planning to production in batches. Although precise mathematical definitions are strong in curved modeling, which is important, on the contrary, if the user does not know the meaning of these precise mathematical definitions of these shapes, there is a problem that is quite difficult to learn. In particular, it is essential software for design in the aircraft and automobile industries due to its many curved and precise designs through Surface Modeling, and is widely used in areas that require precise design such as mold design. Considering that Dassault Systems is a company that makes mirage fighters, it is the software that originally built airplanes. It has begun to be developed for use in the design of the aviation and space industries, and now the area of use is wide.
+        \end{description}
+        \item NGINX
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{NGINX.png}}
+        \caption{NGINX}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item Nginx is a lightweight web server specialized for simultaneous access processing. It is sometimes used as an HTTP Web Server that responds to static files that meet your request when you receive a request from a client, or as a load balancer that can reduce the load on the WAS server by using it as a Reverse Proxy Server.
+        \end{description}
+    \end{enumerate}
+\begin{itemize}
+    \item Cost
+        \begin{table}
+    \caption{Cost of Software}
+    \label{t1}
+    \centering
+    \begin{tabular}{|p{1cm}|p{2cm}|p{4.5cm}|}
+    \noalign{\smallskip}\noalign{\smallskip}\hline
+    Software & Task Description & Cost \\
+    \hline
+    AWS EC2 &	Virtual Server &	\$0  \\
+    \hline
+    AWS RDS	& Remote Database &	\$0   \\
+    \hline
+    AWS S3 &	Image Repository &	\$0 or \$1  \\
+    \hline
+    Figma &	UI design tool &	\$0   \\
+    \hline
+    Github &	Remote repository &	\$0   \\
+    \hline
+    CATIA &	3D Modeling & About 23 ,000 euro / About €1,470 per year / for Education : €99 per year
+    \\
+    \hline
+    NGINX &	Web Server &	\$0   \\
+    \hline
+    \end{tabular}
+    \end{table}
+    \end{itemize}
+\subsection{Development Environment}
+    \begin{enumerate}
+        \item Provide clear information of development environment
+        \begin{itemize}
+            \item Window 10
+            \begin{itemize}
+                \item 2.80GHz, Core Intel i7
+                \item 16GB Memory
+            \end{itemize}
+            \item Visual Studio Code 1.62.0
+            \item TypeScript 4.3.5
+            \item Node 14.17.6
+        \end{itemize}
+        \item Provide clear information of development environment
+        \begin{itemize}
+            \item Window 10
+            \begin{itemize}
+                \item 1.50GHz, Core Intel i5-1035G4
+                \item 8GB Memory
+            \end{itemize}
+            \item Android Studio 4.2.1
+            \item Android Emulator 30.6.5
+            \item Android SDK Platform-Tools 31.0.2
+            \item Compile SDK Version 30(API 30: Android 11.0(R))
+            \item Intel x86 Emulator Accelerator 7.6.5
+            \item Android SDK Build-Tools 32-rc1 30.0.3 (Build Tools Version)
+            \item Android Gradle Plugin Version 4.2.1
+            \item Gradle Version 6.7.1
+            \item Junit:4.+
+            \item JDK Version JAVA 16.0.2
+        \end{itemize}
+    \end{enumerate}
+
+\section{Specification}
+\subsection{Software}
+\begin{itemize}
+    \item Front-end
+    \begin{itemize}
+        \item Application Icon
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{icon.png}}
+            \caption{Icon}
+            \label{fig}
+            \end{figure}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{icon_code.png}}
+            \caption{Icon code}
+            \label{fig}
+            \end{figure}
+        \item Initial Screen
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{Initial_Screen.png}}
+            \caption{Initial Screen}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item The intro screen was made into a closet image, and the duration of the intro screen was implemented as 3 seconds.
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{Initial_Screen_code.png}}
+            \caption{Initial Screen code}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item After creating the Intro activity class, the setContentView method specifies that the screen that the Java code wants to show is intro activity (the process is repeated because most Java files and xml codes want to be linked to each other). On the intro screen, the status bar at the top was removed through the getWindow method because We thought it would be good to have a screen where the status bar at the top was not visible. The object handler of the class Handler was declared and a method called postDelayed was executed to add a function that the intro screen would last for 3 seconds. A callback function called run was used, and within that function, When the intro screen runs, the state of moving to the next screen, Main Activity, was implemented through Intent. It stores the information (information leading to the next screen) in an object called intent and hands over the intent object to the startActivity method as a parameter. And if you declare 3000 msec on the postDelayed method, After the intro screen lasts for 3 seconds, the command to move on to the next screen, main_activity, has been completed.
+            \end{description}
+        \item Main Activity
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{Main_activity.png}}
+            \caption{MainActivity code}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item This code is the Main Activity code of our team app.
+                The first intro screen lasts for 3 seconds and appears for the first time.
+                There are an additional button on clothes and an information button on clothes that you can see the added clothes.
+                Pressing each button leads to the corresponding screen.
+            \end{description}
+        \item Searching
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{searching.png}}
+            \caption{Searching}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item First, We will explain the “Clothes information check button” button.
+                The clothes information check button is a button that brings up a screen where users can see the clothes added at once. Among the clothes added, it will be implemented so that desired clothes can be searched through a search function (filtering).
+                In the filtering item, all categories in the process of storing clothes were visualized on one screen at a time.
+                Click on the category you want to search for clothes that meet the conditions as much as possible.
+            \end{description}
+        \item Adding    
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{add1.png}}
+            \caption{Adding1}
+            \label{fig}
+            \end{figure}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{add2.png}}
+            \caption{Adding2}
+            \label{fig}
+            \end{figure}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{add3.png}}
+            \caption{Adding3}
+            \label{fig}
+            \end{figure}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{add4.png}}
+            \caption{Adding4}
+            \label{fig}
+            \end{figure}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{add_code.png}}
+            \caption{Adding code}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item Next, We will show you the screen that goes over when you press the Add Clothes button and the overall app operation process.
+                Per piece of clothing (top, bottom, other), (long-sleeved, short-sleeved/long pants, shorts), color, material, and the last date you wore it.
+                Information can be stored for a total of 5 categories, and each is composed of one screen.
+                For each screen, json-type data is saved.
+                Whenever the screen went over, the java source code was added to the manifest file.
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{add5.png}}
+            \caption{Adding5}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item If you press the “Save Clothing Information” button on the last screen, “Last Date I wore”
+                With the alert dialog, a device that allows users to check once more just before storing their clothes was hung.
+                Here, when the yes button is pressed, data stored in jsonData is transmitted to the server.
+            \end{description}
+        \item Wind system
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{windsystem.png}}
+            \caption{Wind system}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item And as soon as you turn back to the “Wind system reservation” screen,
+                It displays a message so that the user can see the information that the clothes information is well stored through the toast function.
+                And finally, when the yes button is pressed, information on clothes is stored in the server in the form of json. (Data related to the reservation of the blowing system were not included in jsonData.)
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{windsystem2.png}}
+            \caption{Wind system2}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item When a Yes or No button is pressed on the blowing system reservation screen, a toast message suitable for the button appears and returns to the initial screen.
+                If you press the No button, the toast message will say, “Wind system is not in reservation.”
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=5cm]{windsystem3.png}}
+            \caption{Wind system3}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item Now, when the “YES” button is pressed on the last screen, we will look at the process of transmitting JSON data to the server with the code.
+            \end{description}
+        \item JSON code
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{json1.png}}
+            \caption{JSON code1}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item First, We used the Android volley library.
+                On each screen, all data is contained in an object called jsonData through the code above, and on each screen, jsonData is also handed over through Intent.
+                Now, on the last screen, only the jsonData object needs to be handed over to the server through the post method.
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{json2.png}}
+            \caption{JSON code2}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item In a class called sendHelper, an object called requestQueue was declared.
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{json3.png}}
+            \caption{JSON code3}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item In the LastDate.java file, which means the last screen, Declare the URL to post as a field variable.
+            \end{description}
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{json4.png}}
+            \caption{JSON code4}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item In the LastData file, the button just before sending jsonData to the server, Let’s look at the OnClickListener method for the yes button.
+                Here, there is now a process of being posted to the server.
+            \end{description}
+        \item JSON result
+            \begin{figure}[htbp]
+            \centerline{\includegraphics[width=8cm]{json_result.png}}
+            \caption{JSON result}
+            \label{fig}
+            \end{figure}
+            \begin{description}
+                \item http://15.165.205.100/cloth
+            \end{description}
+    \end{itemize}
+    \item Back-end
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=5cm]{DBschema.png}}
+        \caption{DB SCHEMA}
+        \label{fig}
+        \end{figure}
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=8cm]{rest_API.png}}
+        \caption{REST API}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item This is a list of APIs currently used in our project. Clients and servers exchange resources with each other through the REST API. It plans to share API lists with team members in real time through Swagger. It has implemented a simple CRUD that can manage clothes. Additionally, we added conditional search functions found in ordinary web services. When only necessary items are sent a POST request in JSON format, the server side filters and sends a response. If no conditions are set, the entire data will be inquired.
+        \end{description}
+\end{itemize}
+
+
+\subsection{Hardware}
+This is a reduced modeling of hardware.
+\begin{itemize}
+    \item Overall of Hardware modeling
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=7cm]{overall1.png}}
+        \caption{Overall External appearance}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item The external appearance is as follows. The size is the size of a built-in closet and can be divided into two main parts. It is divided into a drawer-type space and a hanger-type space.
+        \end{description}
+        \begin{figure}[htbp]
+        \centerline{\includegraphics[width=7cm]{overall2.png}}
+        \caption{Overall Internal appearance}
+        \label{fig}
+        \end{figure}
+        \begin{description}
+            \item The internal appearance is as follows. The idea was conceived from the parking tower. In the case of drawer-type spaces, the “Vertical circulation” method of parking towers was adopted, and in the case of hanger-type spaces, the “Elevator type” method of parking towers was adopted.
+        \end{description}
+    \item Hanger-type space
+        \begin{itemize}
+            \item Long / Short Closet
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger1.png}}
+                \caption{Hanger-type space1}
+                \label{fig}
+                \end{figure}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger2.png}}
+                \caption{Hanger-type space2}
+                \label{fig}
+                \end{figure}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger3.png}}
+                \caption{Hanger-type space3}
+                \label{fig}
+                \end{figure}
+                \begin{description}
+                    \item Clothes may move along the rail by adopting the ‘Elevator type’ method of the parking tower. After selecting the desired clothes through the application and pressing the access button, the clothes come out along the rail to the entrance. The storage spaces for short and long clothes are separated. When the reservation system is pressed, the clothes move to the entrance and prepare the clothes in optimal condition through the styler process.
+                \end{description}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger4.png}}
+                \caption{Hanger-type space4}
+                \label{fig}
+                \end{figure}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger5.png}}
+                \caption{Hanger-type space5}
+                \label{fig}
+                \end{figure}
+                \begin{description}
+                    \item Clothes can be managed individually through partitions. Because clothes do not touch each other, they do not get colored or foreign substances move and stick.
+                \end{description}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger6.png}}
+                \caption{Hanger-type space6}
+                \label{fig}
+                \end{figure}\begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger7.png}}
+                \caption{Hanger-type space7}
+                \label{fig}
+                \end{figure}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{hanger8.png}}
+                \caption{Hanger-type space8}
+                \label{fig}
+                \end{figure}
+            \item Clothing Entrance
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{entrance1.png}}
+                \caption{Clothing Entrance1}
+                \label{fig}
+                \end{figure}
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{entrance2.png}}
+                \caption{Clothing Entrance2}
+                \label{fig}
+                \end{figure}
+                \begin{description}
+                    \item When putting clothes in, it activates the dust or odor removal function of clothes. Unlike the styler function, it is operated for cleaning when stored in the closet, and ventilation is mainly performed (see the video for rail movement). If you use a reservation system when discharging clothes, you can use simple steam irons and stylers. It can be executed through the application and the display of the closet.
+                \end{description}
+            \item Ventilation Fan
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{ventilationFan.png}}
+                \caption{Ventilation Fan}
+                \label{fig}
+                \end{figure}
+                \begin{description}
+                    \item When the ventilation system is operated through the application, the ventilator under the short closet starts operating. It makes both short and long closets comfortable. Even if the customer forgets to use the reservation system, the minimum condition of the clothes is guaranteed.
+                \end{description}
+        \end{itemize}
+    \item Drawer-type space
+        \begin{itemize}
+            \item Exterior of Drawer-type
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{ext_drawer.png}}
+                \caption{Exterior of Drawer-type}
+                \label{fig}
+            \end{figure}
+            \begin{description}
+                \item The exterior of the drawer-type space looks like the above. The entrance to the drawer is located at the bottom of the front. If you select the desired drawer through the application, the drawer will appear through the entrance. Drawers can control moisture and temperature, respectively, like refrigerators, and use ventilation systems. Therefore, it is easy to classify and manage clothes in the manner desired by the user, such as the type and use of clothes. The space is sealed, and countermeasures are prepared to open it in case of an emergency such as failure/repair.
+            \end{description}
+            \item Interior of Drawer-type
+                \begin{figure}[htbp]
+                \centerline{\includegraphics[width=7cm]{int_drawer.png}}
+                \caption{Interior of Drawer-type}
+                \label{fig}
+                \end{figure}
+                \begin{description}
+                    \item The interior of the drawer-type space looks like the above. The ‘Vertical circulation’ method of the parking tower was adopted. The six drawers are constructed in the form of 1*2*3 in width*length*height*3. The drawer to enter and exit moves toward the entrance through rotation.
+                \end{description}
+        \end{itemize}
+\end{itemize}
+\end{document}
